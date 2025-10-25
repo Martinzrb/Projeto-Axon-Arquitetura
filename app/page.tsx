@@ -1,5 +1,4 @@
 // app/page.tsx
-
 "use client";
 
 import Beams from "@/components/ui/beams";
@@ -59,14 +58,12 @@ export default function HomePage() {
   return (
     <main className="bg-black text-white">
       {/* Navbar */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <NavRail items={navItems} />
-      </div>
+      <NavRail items={navItems} />
 
       {/* Home Section */}
       <section
         id="home"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6"
       >
         <div className="absolute inset-0">
           <Beams
@@ -80,12 +77,12 @@ export default function HomePage() {
             rotation={0}
           />
         </div>
-        <div className="z-10 text-center px-4">
-          <h1 className="text-7xl font-extrabold tracking-tight sm:text-9xl">
+        <div className="z-10 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight">
             ARQUITETURA QUE <br />
             RESPIRA TECNOLOGIA.
           </h1>
-          <p className="mt-4 text-xl text-neutral-300">
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-neutral-300">
             A AXON transforma seus sonhos em realidade com inovação e
             excelência.
           </p>
@@ -124,7 +121,7 @@ export default function HomePage() {
                     src={proj.image}
                     alt={proj.title}
                     fill
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="object-cover rounded-lg"
                   />
                 </div>
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

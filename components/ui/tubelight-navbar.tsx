@@ -38,9 +38,8 @@ export function NavRail({ items, className }: NavBarProps) {
         className
       )}
     >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-2 px-2 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-2 sm:py-2 sm:px-2 rounded-full shadow-lg">
         {items.map((item) => {
-          const Icon = item.icon;
           const isActive = activeTab === item.name;
 
           return (
@@ -49,15 +48,12 @@ export function NavRail({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-base font-semibold px-8 py-3 rounded-full transition-colors",
+                "relative cursor-pointer text-sm sm:text-base font-semibold px-4 sm:px-8 py-2 sm:py-3 rounded-full transition-colors",
                 "text-cyan-400 hover:text-cyan-300",
                 isActive && "bg-cyan-900/20 text-cyan-500"
               )}
             >
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">
-                <Icon size={22} strokeWidth={2.5} />
-              </span>
+              <span>{item.name}</span>
 
               {isActive && (
                 <motion.div
