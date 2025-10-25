@@ -1,65 +1,181 @@
+// app/page.tsx
+
+"use client";
+
+import Beams from "@/components/ui/beams";
+import NavRail from "@/components/ui/tubelight-navbar";
+import FeaturedSteps from "@/components/ui/feature-section";
+import { Home, User, Briefcase, FileText } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
+// --- 1. NAVBAR ---
+const navItems = [
+  { name: "Home", url: "#home", icon: Home },
+  { name: "Sobre", url: "#about", icon: User },
+  { name: "Projetos", url: "#projects", icon: Briefcase },
+  { name: "Contato", url: "#contact", icon: FileText },
+];
+
+// --- 2. FEATURE SECTION ---
+const featuresArquitetura = [
+  {
+    step: "1",
+    title: "Planejamento e Projeto",
+    content:
+      "Desenvolvemos o projeto arquitetônico completo, alinhando estética, funcionalidade e necessidades do cliente.",
+    image: "/image/axon-inicio.png",
+  },
+  {
+    step: "2",
+    title: "Design de Interiores",
+    content:
+      "Criamos ambientes internos detalhados, garantindo conforto, design moderno e soluções inteligentes de espaço.",
+    image: "/image/axon-interior.png",
+  },
+  {
+    step: "3",
+    title: "Entrega Realizada",
+    content:
+      "Acompanhar cada etapa da obra para entregar a casa pronta, perfeita e dentro do prazo, com excelência em cada detalhe.",
+    image: "/image/axon-entrega.png",
+  },
+];
+
+// --- 3. PROJETOS ---
+const projetos = [
+  { title: "Projeto 1", image: "/image/axon-inicio.png" },
+  { title: "Projeto 2", image: "/image/axon-interior.png" },
+  { title: "Projeto 3", image: "/image/axon-entrega.png" },
+  { title: "Projeto 4", image: "/image/axon-inicio.png" },
+  { title: "Projeto 5", image: "/image/axon-interior.png" },
+  { title: "Projeto 6", image: "/image/axon-entrega.png" },
+  { title: "Projeto 7", image: "/image/axon-inicio.png" },
+  { title: "Projeto 8", image: "/image/axon-interior.png" },
+  { title: "Projeto 9", image: "/image/axon-entrega.png" },
+];
+
+// --- 4. PAGE COMPONENT ---
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="bg-black text-white">
+      {/* Navbar */}
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+        <NavRail items={navItems} />
+      </div>
+
+      {/* Home Section */}
+      <section
+        id="home"
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
+        <div className="absolute inset-0">
+          <Beams
+            beamWidth={2}
+            beamHeight={15}
+            beamNumber={12}
+            lightColor={"#ffffff"}
+            speed={2}
+            noiseIntensity={1.78}
+            scale={0.2}
+            rotation={0}
+          />
+        </div>
+        <div className="z-10 text-center px-4">
+          <h1 className="text-7xl font-extrabold tracking-tight sm:text-9xl">
+            ARQUITETURA QUE <br />
+            RESPIRA TECNOLOGIA.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 text-xl text-neutral-300">
+            A AXON transforma seus sonhos em realidade com inovação e
+            excelência.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-zinc-950 pointer-events-none"></div>
+      </section>
+
+      {/* Sobre / Feature Section */}
+      <section
+        id="about"
+        className="py-24 md:py-32 bg-gradient-to-t from-zinc-950 via-zinc-900 to-zinc-950"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-5xl text-center font-bold mb-16">
+            Nosso Processo de Excelência
+          </h2>
+          <FeaturedSteps features={featuresArquitetura} />
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Projetos Section */}
+      <section
+        id="projects"
+        className="py-24 bg-gradient-to-t from-zinc-950 via-zinc-900 to-zinc-950"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-5xl text-center font-bold mb-16">Projetos</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projetos.map((proj, idx) => (
+              <div
+                key={idx}
+                className="relative overflow-hidden rounded-lg cursor-pointer group hover:scale-105 transition-transform duration-300"
+              >
+                <div className="relative w-full h-64">
+                  <Image
+                    src={proj.image}
+                    alt={proj.title}
+                    fill
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <h3 className="text-xl font-bold text-white">{proj.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contato Section */}
+      <section
+        id="contact"
+        className="py-24 bg-gradient-to-t from-zinc-950 via-zinc-900 to-zinc-950"
+      >
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-5xl text-center font-bold mb-12">Contato</h2>
+          <form className="space-y-6">
+            <div className="flex flex-col">
+              <label className="mb-2 text-sm font-medium">Nome</label>
+              <input
+                type="text"
+                placeholder="Seu nome"
+                className="p-3 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-primary focus:outline-none"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="mb-2 text-sm font-medium">Email</label>
+              <input
+                type="email"
+                placeholder="Seu email"
+                className="p-3 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-primary focus:outline-none"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="mb-2 text-sm font-medium">Mensagem</label>
+              <textarea
+                placeholder="Sua mensagem"
+                className="p-3 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-primary focus:outline-none h-32"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full py-3 bg-primary text-black font-semibold rounded-lg hover:bg-primary/80 transition-colors"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
   );
 }
