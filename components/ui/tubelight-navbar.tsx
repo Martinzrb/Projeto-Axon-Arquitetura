@@ -34,11 +34,11 @@ export function NavRail({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 px-2 sm:px-0 pointer-events-none",
         className
       )}
     >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-2 sm:py-2 sm:px-2 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-2 sm:py-2 sm:px-2 rounded-full shadow-lg pointer-events-auto">
         {items.map((item) => {
           const isActive = activeTab === item.name;
 
@@ -60,11 +60,7 @@ export function NavRail({ items, className }: NavBarProps) {
                   layoutId="lamp"
                   className="absolute inset-0 w-full bg-cyan-500/5 rounded-full -z-10"
                   initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30,
-                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-cyan-500 rounded-t-full">
                     <div className="absolute w-12 h-6 bg-cyan-500/20 rounded-full blur-md -top-2 -left-2" />
