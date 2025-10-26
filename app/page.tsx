@@ -58,7 +58,9 @@ export default function HomePage() {
   return (
     <main className="bg-black text-white">
       {/* Navbar */}
-      <NavRail items={navItems} />
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-2 sm:px-0">
+        <NavRail items={navItems} />
+      </div>
 
       {/* Home Section */}
       <section
@@ -124,7 +126,7 @@ export default function HomePage() {
                     className="object-cover rounded-lg"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                   <h3 className="text-xl font-bold text-white">{proj.title}</h3>
                 </div>
               </div>
